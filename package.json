@@ -5,7 +5,7 @@
   "author": "suum-lion <suum@likelion.net>",
   "license": "MIT",
   "workspaces": [
-    "packages/*/*"
+    "packages/*"
   ],
   "devDependencies": {
     "@telenko/node-mf": "^0.0.5",
