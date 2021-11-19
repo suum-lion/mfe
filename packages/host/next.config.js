@@ -13,7 +13,11 @@ module.exports = {
       plugins: [
         ...config.plugins,
         new (isServer ? NodeModuleFederation : ModuleFederationPlugin)({
-          remotes: {},
+          remotes: {
+            remoteApp: isServer
+              ? "remoteApp@http://localhost:3002/node/remoteEntry.js"
+              : "remoteApp@http://localhost:3002/web/remoteEntry.js"
+          },
           shared: {
             react: {
               eager: true,

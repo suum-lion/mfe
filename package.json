@@ -7,6 +7,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "start": "lerna run --parallel start"
+  },
   "devDependencies": {
     "@telenko/node-mf": "^0.0.5",
     "@types/node": "^16.11.8",
