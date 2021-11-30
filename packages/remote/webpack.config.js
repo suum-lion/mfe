@@ -1,18 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { NodeAsyncHttpRuntime } = require("@telenko/node-mf");
 const path = require("path");
 const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 const packageJson = require("./package.json");
 
-const getConfig = target => ({
+module.exports = {
   entry: "./src/index.tsx",
-  target: target === "web" ? "web" : false,
   mode: "development",
   devtool: "hidden-source-map",
   output: {
-    path: path.resolve(__dirname, "dist", target),
-    publicPath: `http://localhost:3002/${target}/`,
+    path: path.resolve(__dirname, "dist"),
+    publicPath: `http://localhost:3002/`,
     clean: true
   },
   devServer: {
@@ -80,14 +78,8 @@ const getConfig = target => ({
         }
       }
     }),
-    ...(target === "web"
-      ? [
-          new HtmlWebpackPlugin({
-            template: "./public/index.html"
-          })
-        ]
-      : [new NodeAsyncHttpRuntime()])
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    })
   ]
-});
-
-module.exports = [getConfig("web"), getConfig("node")];
+};

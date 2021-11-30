@@ -10,10 +10,10 @@
     ]
   },
   "scripts": {
-    "start": "lerna run --parallel start"
+    "start": "lerna run --parallel start",
+    "bootstrap": "lerna bootstrap --use-workspaces"
   },
   "devDependencies": {
-    "@telenko/node-mf": "^0.0.5",
     "@types/node": "^16.11.8",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",

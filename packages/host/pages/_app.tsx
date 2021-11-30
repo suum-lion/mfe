@@ -3,8 +3,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import React from "react";
 
-globalThis.React = React;
-
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }

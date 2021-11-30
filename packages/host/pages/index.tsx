@@ -6,7 +6,13 @@ import styles from "../styles/Home.module.css";
 
 // @ts-ignore
 const Logo = dynamic(() => import("remoteApp/Logo"), {
-  loading: () => <>loading...</>
+  loading: () => <>loading...</>,
+  ssr: false,
+});
+// @ts-ignore
+const RemoteAppContainer = dynamic(() => import("remoteApp/App"), {
+  loading: () => <>loading...</>,
+  ssr: false,
 });
 
 const Home: NextPage = () => {
@@ -19,7 +25,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Logo />
+        {/* <Logo /> */}
+        <RemoteAppContainer />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

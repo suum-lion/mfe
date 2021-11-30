@@ -2675,11 +2675,6 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@telenko/node-mf@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@telenko/node-mf/-/node-mf-0.0.5.tgz#70b56864d81f8b9a86238ae4a0a6986691706083"
-  integrity sha512-2pg7N5pdeFAFVRvpg/AdU8WaSGzfH9JmQ/Yk1euOAQTEbGNYVtX0azFwKlVDzXlLJi+RJhcD+LFEfU/U9Jo0HA==
-
 "@testing-library/dom@^7.28.1":
   version "7.31.2"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.2.tgz#df361db38f5212b88555068ab8119f5d841a8c4a"
