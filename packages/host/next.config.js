@@ -11,7 +11,8 @@ module.exports = {
         ...config.plugins,
         new ModuleFederationPlugin({
           remotes: {
-            remoteApp:"remoteApp@http://localhost:3002/remoteEntry.js"
+            remoteApp: "remoteApp@http://localhost:3002/remoteEntry.js",
+            header: "header@http://localhost:3003/remoteEntry.js"
           },
           shared: {
             react: {

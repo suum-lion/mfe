@@ -1,21 +1,22 @@
+import FederatedWrapper from "../components/FederatedWrapper";
 import Head from "next/head";
 import Image from "next/image";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import styles from "../styles/Home.module.css";
+import { useState } from "react";
 
-// @ts-ignore
-const Logo = dynamic(() => import("remoteApp/Logo"), {
-  loading: () => <>loading...</>,
-  ssr: false,
-});
-// @ts-ignore
-const RemoteAppContainer = dynamic(() => import("remoteApp/App"), {
-  loading: () => <>loading...</>,
-  ssr: false,
-});
+const RemoteAppContainer = FederatedWrapper(
+  // @ts-ignore
+  dynamic(() => import("header/App"), {
+    loading: () => <>loading...</>,
+    ssr: false
+  })
+);
 
 const Home: NextPage = () => {
+  const [showLogo, setShowLogo] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,10 +27,12 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         {/* <Logo /> */}
-        <RemoteAppContainer />
+        {/* @ts-ignore */}
+        <RemoteAppContainer showLogo={showLogo} />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <button type="button" onClick={() => setShowLogo(!showLogo)}>로고 토글</button>
 
         <p className={styles.description}>
           Get started by editing{" "}
